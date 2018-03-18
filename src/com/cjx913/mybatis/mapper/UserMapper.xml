@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间为对应mapper接口全类名-->
+<mapper namespace="com.cjx913.mybatis.mapper.UserMapper">
+
+    <select id="findAllUser" resultType="User">
+        SELECT * FROM T_USER
+    </select>
+
+    <select id="findUserById" parameterType="int" resultType="User">
+        SELECT* FROM t_user WHERE id=#{id}
+    </select>
+
+    <select id="findUserByName" parameterType="string" resultType="User">
+        SELECT* FROM t_user WHERE NAME=#{name}
+    </select>
+
+    <select id="findUserByLikeName" parameterType="string" resultType="User">
+        SELECT* FROM t_user WHERE NAME LIKE '%${value}%'
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+        <selectKey order="AFTER" resultType="int" keyProperty="id">
+            SELECT SEQ_USER_ID.currval FROM dual
+        </selectKey>
+        INSERT INTO T_USER(NAME,PASSWORD) VALUES (#{name},#{password})
+    </insert>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE T_USER SET NAME=#{name},PASSWORD=#{password} WHERE ID=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="User">
+        DELETE FROM T_USER WHERE ID=#{id}
+    </delete>
+
+</mapper>

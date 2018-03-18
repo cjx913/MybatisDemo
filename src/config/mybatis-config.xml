@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--设置别名-->
+    <typeAliases>
+        <!--<typeAlias type="com.cjx913.mybatis.pojo.User" alias="user"/>--><!--指定别名，不区分大小写-->
+        <package name="com.cjx913.mybatis.pojo"/><!--默认别名是类名,不区分大小写-->
+    </typeAliases>
+
+    <!--设置全局运行参数-->
+    <!--<settings>-->
+        <!--<setting name="" value=""/>-->
+    <!--</settings>-->
+
+    <environments default="oracle">
+        <environment id="oracle">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+                <property name="username" value="cjx913"/>
+                <property name="password" value="cjx913"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="config/User-mapper.xml"/>
+        <package name="com.cjx913.mybatis.mapper"/>
+        <!--<mapper class=""/>--><!--配置mapper接口，Mapper.java和Mapper.xml同名且放在同一包下-->
+        <!--<package name=""/>--><!--批量对mapper配置，自动扫描包下的mapper接口，Mapper.java和Mapper.xml同名且放在同一包下-->
+    </mappers>
+</configuration>
