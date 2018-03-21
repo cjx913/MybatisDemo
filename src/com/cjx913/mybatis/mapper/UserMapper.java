@@ -12,4 +12,6 @@ public interface UserMapper {
     public void insertUser(User user) throws Exception;
     public void updateUser(User user) throws Exception;
     public void deleteUser(User user) throws Exception;
+    public User findUserWithMessageById(int id) throws Exception;
+    public User findUserWithOrderListById(int id) throws Exception;
 }
