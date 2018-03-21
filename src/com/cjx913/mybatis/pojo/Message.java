@@ -10,6 +10,7 @@ public class Message implements Serializable {
     private String e_mail;
     private int age;
     private Date birth;
+    private int user_id;
 
     private User user;
 
@@ -53,6 +54,14 @@ public class Message implements Serializable {
         this.birth = birth;
     }
 
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
     public User getUser() {
         return user;
     }
@@ -70,6 +79,7 @@ public class Message implements Serializable {
                 ", e_mail='" + e_mail + '\'' +
                 ", age=" + age +
                 ", birth=" + birth +
+                ", user_id=" + user_id +
                 '}';
     }
 }

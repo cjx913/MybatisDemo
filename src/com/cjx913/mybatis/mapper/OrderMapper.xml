@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间为对应mapper接口全类名-->
+<mapper namespace="com.cjx913.mybatis.mapper.OrderMapper">
+    <!--orderWithUserMap-->
+    <resultMap id="orderWithUserMap" type="Order">
+        <id property="order_id" column="ORDER_ID"/>
+        <result property="total" column="TOTAL"/>
+        <result property="remark" column="REMARK"/>
+        <result property="user_id" column="USER_ID"/>
+        <association property="user"
+                     select="com.cjx913.mybatis.mapper.UserMapper.findUserById"
+                     column="USER_ID">
+            <id property="user_id" column="USER_ID"/>
+            <result property="name" column="NAME"/>
+            <result property="password" column="PASSWORD"/>
+        </association>
+    </resultMap>
+    <select id="findOrderWithUserById" parameterType="int" resultMap="orderWithUserMap">
+        SELECT * FROM T_ORDER WHERE ORDER_ID=#{order_id}
+    </select>
+
+</mapper>

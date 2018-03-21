@@ -2,6 +2,14 @@
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="config/database.properties"/>
+
+    <!--设置全局运行参数-->
+    <settings>
+        <!--启用延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
 
     <!--设置别名-->
     <typeAliases>
@@ -9,19 +17,14 @@
         <package name="com.cjx913.mybatis.pojo"/><!--默认别名是类名,不区分大小写-->
     </typeAliases>
 
-    <!--设置全局运行参数-->
-    <!--<settings>-->
-        <!--<setting name="" value=""/>-->
-    <!--</settings>-->
-
     <environments default="oracle">
         <environment id="oracle">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-                <property name="username" value="cjx913"/>
-                <property name="password" value="cjx913"/>
+                <property name="driver" value="${oracle.db.driver}"/>
+                <property name="url" value="${oracle.db.url}"/>
+                <property name="username" value="${oracle.db.username}"/>
+                <property name="password" value="${oracle.db.password}"/>
             </dataSource>
         </environment>
     </environments>
