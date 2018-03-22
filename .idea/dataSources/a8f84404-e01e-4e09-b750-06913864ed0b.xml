@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="CJX913">
       <ObjectId>51</ObjectId>
-      <IntrospectionTimestamp>2018-03-21.21:37:30</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-03-22.10:54:53</IntrospectionTimestamp>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
-      <ModifiedTimestamp>2018-03-21.21:37:30</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-03-22.10:54:53</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -73,58 +73,70 @@
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
-    <sequence id="22" parent="2" name="SEQ_USER_ID">
+    <sequence id="22" parent="2" name="SEQ_PRODUCT_ID">
+      <ObjectId>20150</ObjectId>
+      <CreatedTimestamp>2018-03-22.10:54:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-03-22.10:54:52</ModifiedTimestamp>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="23" parent="2" name="SEQ_USER_ID">
       <ObjectId>20131</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
-    <table id="23" parent="2" name="T_MESSAGE">
+    <table id="24" parent="2" name="T_MESSAGE">
       <ObjectId>20132</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:37:30</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="24" parent="2" name="T_ORDER">
+    <table id="25" parent="2" name="T_ORDER">
       <ObjectId>20135</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="25" parent="2" name="T_USER">
+    <table id="26" parent="2" name="T_PRODUCT">
+      <ObjectId>20148</ObjectId>
+      <CreatedTimestamp>2018-03-22.10:54:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-03-22.10:54:53</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="27" parent="2" name="T_USER">
       <ObjectId>20129</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <column id="26" parent="23" name="MESSAGE_ID">
+    <column id="28" parent="24" name="MESSAGE_ID">
       <Position>1</Position>
       <DataType>NUMBER(8)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="27" parent="23" name="GENDER">
+    <column id="29" parent="24" name="GENDER">
       <Position>2</Position>
       <DataType>VARCHAR2(4)|0</DataType>
       <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="28" parent="23" name="E_MAIL">
+    <column id="30" parent="24" name="E_MAIL">
       <Position>3</Position>
       <DataType>VARCHAR2(128)|0</DataType>
     </column>
-    <column id="29" parent="23" name="AGE">
+    <column id="31" parent="24" name="AGE">
       <Position>4</Position>
       <DataType>NUMBER(3)|0</DataType>
     </column>
-    <column id="30" parent="23" name="BIRTH">
+    <column id="32" parent="24" name="BIRTH">
       <Position>5</Position>
       <DataType>DATE|0</DataType>
     </column>
-    <column id="31" parent="23" name="USER_ID">
+    <column id="33" parent="24" name="USER_ID">
       <Position>6</Position>
       <DataType>NUMBER(8)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="32" parent="23" name="MESSAGE_ID_PK">
+    <index id="34" parent="24" name="MESSAGE_ID_PK">
       <ObjectId>20133</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
@@ -132,14 +144,14 @@
       <ColNames>MESSAGE_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="33" parent="23" name="MESSAGE_ID_PK">
+    <key id="35" parent="24" name="MESSAGE_ID_PK">
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <ColNames>MESSAGE_ID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>MESSAGE_ID_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="34" parent="23" name="MESSAGE_USER_ID_FK">
+    <foreign-key id="36" parent="24" name="MESSAGE_USER_ID_FK">
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <ColNames>USER_ID</ColNames>
       <RefSchemaName>CJX913</RefSchemaName>
@@ -147,38 +159,38 @@
       <RefKeyName>USER_ID_PK</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <check id="35" parent="23" name="MESSAGE_GENDER_CK">
+    <check id="37" parent="24" name="MESSAGE_GENDER_CK">
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <ColNames>GENDER</ColNames>
       <Predicate>gender IN (&apos;男&apos;,&apos;女&apos;)</Predicate>
     </check>
-    <trigger id="36" parent="23" name="TRI_MESSAGE_ID">
+    <trigger id="38" parent="24" name="TRI_MESSAGE_ID">
       <ObjectId>20127</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
-      <Condition>new.message_id IS NULL </Condition>
+      <Condition>new.message_id IS NULL</Condition>
     </trigger>
-    <column id="37" parent="24" name="ORDER_ID">
+    <column id="39" parent="25" name="ORDER_ID">
       <Position>1</Position>
       <DataType>NUMBER(8)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="24" name="TOTAL">
+    <column id="40" parent="25" name="TOTAL">
       <Position>2</Position>
       <DataType>NUMBER(8,2)|0</DataType>
     </column>
-    <column id="39" parent="24" name="REMARK">
+    <column id="41" parent="25" name="REMARK">
       <Position>3</Position>
       <DataType>VARCHAR2(128)|0</DataType>
     </column>
-    <column id="40" parent="24" name="USER_ID">
+    <column id="42" parent="25" name="USER_ID">
       <Position>4</Position>
       <DataType>NUMBER(8)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="41" parent="24" name="ORDER_ID_PK">
+    <index id="43" parent="25" name="ORDER_ID_PK">
       <ObjectId>20136</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
@@ -186,14 +198,14 @@
       <ColNames>ORDER_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="42" parent="24" name="ORDER_ID_PK">
+    <key id="44" parent="25" name="ORDER_ID_PK">
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <ColNames>ORDER_ID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>ORDER_ID_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="43" parent="24" name="ORDER_USER_ID_FK">
+    <foreign-key id="45" parent="25" name="ORDER_USER_ID_FK">
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <ColNames>USER_ID</ColNames>
       <RefSchemaName>CJX913</RefSchemaName>
@@ -201,30 +213,76 @@
       <RefKeyName>USER_ID_PK</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <trigger id="44" parent="24" name="TRI_ORDER_ID">
+    <trigger id="46" parent="25" name="TRI_ORDER_ID">
       <ObjectId>20126</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
-      <Condition>new.order_id IS NULL </Condition>
+      <Condition>new.order_id IS NULL</Condition>
     </trigger>
-    <column id="45" parent="25" name="USER_ID">
+    <column id="47" parent="26" name="PRODUCT_ID">
       <Position>1</Position>
       <DataType>NUMBER(8)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="46" parent="25" name="NAME">
+    <column id="48" parent="26" name="PRODUCT_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="26" name="PRODUCT_PRICE">
+      <Position>3</Position>
+      <DataType>NUMBER(8,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="26" name="PRODUCT_PICTURE">
+      <Position>4</Position>
+      <DataType>VARCHAR2(128)|0</DataType>
+    </column>
+    <column id="51" parent="26" name="PRODUCT_REMARK">
+      <Position>5</Position>
+      <DataType>VARCHAR2(128)|0</DataType>
+    </column>
+    <index id="52" parent="26" name="PRODUCT_ID_PK">
+      <ObjectId>20149</ObjectId>
+      <CreatedTimestamp>2018-03-22.10:54:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-03-22.10:54:52</ModifiedTimestamp>
+      <TablespaceName>TS_MYBATIS</TablespaceName>
+      <ColNames>PRODUCT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="26" name="PRODUCT_ID_PK">
+      <ModifiedTimestamp>2018-03-22.10:54:52</ModifiedTimestamp>
+      <ColNames>PRODUCT_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>PRODUCT_ID_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="54" parent="26" name="TRI_PRODUCT_ID">
+      <ObjectId>20147</ObjectId>
+      <CreatedTimestamp>2018-03-22.10:54:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-03-22.10:54:52</ModifiedTimestamp>
+      <Events>I</Events>
+      <Turn>before-row</Turn>
+      <Condition>new.product_id IS NULL </Condition>
+    </trigger>
+    <column id="55" parent="27" name="USER_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(8)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="27" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(16)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="47" parent="25" name="PASSWORD">
+    <column id="57" parent="27" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR2(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="48" parent="25" name="USER_ID_PK">
+    <index id="58" parent="27" name="USER_ID_PK">
       <ObjectId>20130</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
@@ -232,20 +290,20 @@
       <ColNames>USER_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="49" parent="25" name="USER_ID_PK">
+    <key id="59" parent="27" name="USER_ID_PK">
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <ColNames>USER_ID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>USER_ID_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <trigger id="50" parent="25" name="TRI_USER_ID">
+    <trigger id="60" parent="27" name="TRI_USER_ID">
       <ObjectId>20128</ObjectId>
       <CreatedTimestamp>2018-03-21.21:35:25</CreatedTimestamp>
       <ModifiedTimestamp>2018-03-21.21:35:25</ModifiedTimestamp>
       <Events>I</Events>
       <Turn>before-row</Turn>
-      <Condition>new.user_id IS NULL </Condition>
+      <Condition>new.user_id IS NULL</Condition>
     </trigger>
   </database-model>
 </dataSource>

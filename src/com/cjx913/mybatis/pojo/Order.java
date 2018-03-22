@@ -1,6 +1,9 @@
 package com.cjx913.mybatis.pojo;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
+    private static final long serialVersionUID = -2769435524077734065L;
     private int order_id;
     private double total;
     private String remark;

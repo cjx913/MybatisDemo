@@ -3,6 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--命名空间为对应mapper接口全类名-->
 <mapper namespace="com.cjx913.mybatis.mapper.UserMapper">
+    <!--开启UserMapper的二级缓存-->
+    <!--实体类实现Serializable接口-->
+    <!--单个statement关闭二级缓存，在statement上添加userCache="false"-->
+    <!--单个statement关闭二级缓存刷新，commit时不刷新，在statement上添加flushCache="false"-->
+    <cache />
 
     <select id="findAllUser" resultType="User">
         SELECT * FROM T_USER

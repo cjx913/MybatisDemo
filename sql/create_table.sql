@@ -70,3 +70,25 @@ BEGIN
 SELECT seq_order_id.nextval INTO :new.order_id FROM dual;
 END;
 
+-- product table
+CREATE TABLE t_product(
+  product_id NUMBER(8),
+  product_name VARCHAR2(64) NOT NULL ,
+  product_price NUMBER(8,2) NOT NULL ,
+  product_picture VARCHAR2(128),
+  product_remark VARCHAR2(128),
+  CONSTRAINT product_id_pk PRIMARY KEY (product_id)
+);
+
+CREATE SEQUENCE seq_product_id
+START WITH 1
+INCREMENT BY 1
+NOCYCLE ;
+
+CREATE OR REPLACE TRIGGER tri_product_id
+BEFORE INSERT ON t_product
+FOR EACH ROW
+WHEN (new.product_id IS NULL )
+BEGIN
+SELECT seq_product_id.nextval INTO :new.product_id FROM dual;
+END;
